@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundgradient"
+    tools:context="com.example.wot.parentapp.SplashActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+      <ImageView
+          android:layout_gravity="center"
+          android:layout_width="200dp"
+          android:layout_height="200dp"
+          android:src="@drawable/parentapp_logo"
+          />
+
+    </FrameLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="420dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PAR"
+        android:textStyle="bold|italic"
+        android:textColor="@color/primaryColor"
+        android:textAlignment="textEnd"
+        android:textSize="44sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENT"
+        android:textStyle="bold|italic"
+        android:textColor="#0099cc"
+        android:textAlignment="textEnd"
+        android:textSize="44sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" APP"
+        android:textStyle="bold|italic"
+        android:textColor="#ee4a7f"
+        android:textAlignment="textEnd"
+        android:textSize="44sp" />
+</LinearLayout>
+
+
+</FrameLayout>
