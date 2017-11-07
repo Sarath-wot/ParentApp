@@ -2,6 +2,8 @@ package com.example.wot.parentapp;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +17,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.signature.StringSignature;
 import com.google.android.gms.maps.SupportMapFragment;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +36,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 import static java.net.HttpURLConnection.HTTP_OK;
 
 public class ScreenshotActivity extends AppCompatActivity {
@@ -40,6 +46,7 @@ public class ScreenshotActivity extends AppCompatActivity {
     ImageView imageView;
     SharedPreferences sharedPreferences;
     String cid;
+    PhotoViewAttacher pAttacher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,7 +156,20 @@ public class ScreenshotActivity extends AppCompatActivity {
             else {
 
 
-                Glide.with(ScreenshotActivity.this).load(s).diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(R.drawable.parentapp_logo).into(imageView);
+                Glide.with(ScreenshotActivity.this).load(s).signature(new StringSignature(String.valueOf(System.currentTimeMillis()))).placeholder(R.drawable.parentapp_logo).into(imageView);
+
+                pAttacher = new PhotoViewAttacher(imageView);
+                pAttacher.update();
+                /*  URL newurl = null;
+                try {
+                    newurl = new URL(s);
+                    Bitmap mIcon_val = BitmapFactory.decodeStream(newurl.openConnection() .getInputStream());
+                    imageView.setImageBitmap(mIcon_val);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
 
             }
 
