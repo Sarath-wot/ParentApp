@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.gms.maps.SupportMapFragment;
 
 import org.json.JSONArray;
@@ -148,7 +149,7 @@ public class ScreenshotActivity extends AppCompatActivity {
             else {
 
 
-                Glide.with(ScreenshotActivity.this).load(s).placeholder(R.drawable.parentapp_logo).into(imageView);
+                Glide.with(ScreenshotActivity.this).load(s).diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(R.drawable.parentapp_logo).into(imageView);
 
             }
 
